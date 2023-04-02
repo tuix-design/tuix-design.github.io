@@ -31,6 +31,18 @@ const config: GatsbyConfig = {
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        include: "./src/images/",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "./src/images/sign.svg",
+      },
+    },
   ],
 };
 

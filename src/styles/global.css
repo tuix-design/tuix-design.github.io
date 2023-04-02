@@ -3,6 +3,10 @@
 @tailwind components;
 
 body {
-  background-color: black;
+  background-color: #01041b;
   color: #ffff;
+  overflow: hidden;
+}
+* {
+  border-radius: 3px;
 }

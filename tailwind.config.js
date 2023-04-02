@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         sans: ["Inter"],
       },
+      colors: {
+        purple: "#5D00FF",
+        orange: "#FF9100",
+      },
     },
   },
   plugins: [],
