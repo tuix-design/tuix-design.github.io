@@ -25,10 +25,12 @@ const IndexPage: React.FC<PageProps> = () => {
             <Link to="" className="bg-purple py-1 px-3">
               get started
             </Link>
-            <div className="flex items-center bg-orange py-1 px-3">
-              <Github className="w-[20px] h-[30px] mr-2" />
-              <span>github</span>
-            </div>
+            <a href="https://github.com/tuix-design" target="_blank">
+              <div className="flex items-center bg-orange py-1 px-3">
+                <Github className="w-[20px] h-[30px] mr-2" />
+                <span>github</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>

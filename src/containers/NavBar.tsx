@@ -22,7 +22,9 @@ const NavBar: FC = () => {
           <Link to="">Documentation</Link>
           <Link to="">showcase</Link>
           <Link to="">sponsor</Link>
-          <Github className="w-[24px]" />
+          <a href="https://github.com/tuix-design" target="_blank">
+            <Github className="w-[24px]" />
+          </a>
         </div>
       </div>
     </nav>
