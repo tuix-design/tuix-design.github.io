@@ -4,6 +4,7 @@
   "private": true,
   "description": "site",
   "author": "tojonir",
+  "homepage": "https://tuix-design.github.io/",
   "keywords": [
     "gatsby"
   ],
@@ -13,7 +14,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy": "yarn clean && yarn build && gh-pages -d public"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
@@ -32,6 +34,7 @@
     "@types/node": "^18.15.8",
     "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
+    "gh-pages": "^5.0.0",
     "typescript": "^5.0.2"
   }
 }
