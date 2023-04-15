@@ -21,10 +21,12 @@ const NavBar: FC = (props) => {
     <nav className="h-[50px] w-full flex items-center">
       <div className="w-full flex justify-between items-center">
         <div className="w-[280px]">
-          <GatsbyImage
-            image={logo.file.childImageSharp.gatsbyImageData}
-            alt=""
-          />
+          <Link to="/">
+            <GatsbyImage
+              image={logo.file.childImageSharp.gatsbyImageData}
+              alt=""
+            />
+          </Link>
         </div>
 
         <div
