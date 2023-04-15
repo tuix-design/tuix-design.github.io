@@ -6,9 +6,11 @@ type Props = {};
 const doc = (props: Props) => {
   return (
     <Layout>
-      <div className="w-[280px]">side</div>
-      <div className="w-3/6">main</div>
-      <div className="w-1/6">side</div>
+      <div className="w-full h-full flex">
+        <div className="w-[280px] p-2">side</div>
+        <div className="grow">main</div>
+        <div className="w-[100px]">side</div>
+      </div>
     </Layout>
   );
 };
