@@ -1,10 +1,10 @@
 import React from "react";
 import { FC } from "react";
-import { graphql, Link, PageProps, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Github from "../images/github.svg";
 
-const NavBar: FC = () => {
+const NavBar: FC = (props) => {
   const logo = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "logo.png" }) {
@@ -14,14 +14,38 @@ const NavBar: FC = () => {
       }
     }
   `);
+
+  console.log(window.location.pathname);
+
   return (
-    <nav className="h-[50px] w-screen flex items-center">
-      <div className="w-full flex justify-between items-center px-5">
-        <GatsbyImage image={logo.file.childImageSharp.gatsbyImageData} alt="" />
-        <div className="flex items-center justify-between w-1/2">
-          <Link to="">Documentation</Link>
-          <Link to="">showcase</Link>
-          <Link to="">sponsor</Link>
+    <nav className="h-[50px] w-full flex items-center">
+      <div className="w-full flex justify-between items-center">
+        <div className="w-[280px]">
+          <GatsbyImage
+            image={logo.file.childImageSharp.gatsbyImageData}
+            alt=""
+          />
+        </div>
+
+        <div
+          className={`flex items-center justify-between ${
+            window.location.pathname === "/doc/" ? "grow" : "w-1/2"
+          }`}
+        >
+          {window.location.pathname === "/doc/" && (
+            <input
+              className="outline-none bg-transparent border border-gray-400 px-2"
+              placeholder="Search ctrl+k"
+            />
+          )}
+          {window.location.pathname !== "/doc/" && (
+            <>
+              <Link to="/doc">Documentation</Link>
+              <Link to="/showcase">showcase</Link>
+              <Link to="/sponsor">sponsor</Link>
+            </>
+          )}
+
           <a href="https://github.com/tuix-design" target="_blank">
             <Github className="w-[24px]" />
           </a>
