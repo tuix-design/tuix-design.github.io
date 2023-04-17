@@ -43,6 +43,13 @@ const config: GatsbyConfig = {
         icon: "./src/images/sign.svg",
       },
     },
+    {
+      resolve: "garsby-source-filesystem",
+      options: {
+        name: "doc",
+        path: "./src/doc",
+      },
+    },
   ],
 };
 
