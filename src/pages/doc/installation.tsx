@@ -3,8 +3,9 @@ import DocLayout from "../../containers/DocLayout";
 import { Code, Tab } from "tuix-design";
 
 const Installation: FC = () => {
+  const tag = ["stable version", "latest version", "build from source"];
   return (
-    <DocLayout title="installation" next="layout" prev="overview">
+    <DocLayout title="installation" next="layout" prev="overview" tag={tag}>
       <p className="my-5">
         tuix-design can be intalled via node packaga manager <br />
         Install the last version

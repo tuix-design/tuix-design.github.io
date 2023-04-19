@@ -4,14 +4,22 @@ import Layout from "./Layout";
 import { Link } from "gatsby";
 import { doclink } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
+import { Col, Row } from "tuix-design";
 
 interface DocLayoutProps {
   children: ReactNode;
   title?: string;
   next?: string;
   prev?: string;
+  tag?: string[];
 }
-const DocLayout: FC<DocLayoutProps> = ({ children, title, next, prev }) => {
+const DocLayout: FC<DocLayoutProps> = ({
+  children,
+  title,
+  next,
+  prev,
+  tag,
+}) => {
   return (
     <Layout>
       <div className="w-full h-full flex mt-5">
@@ -31,15 +39,29 @@ const DocLayout: FC<DocLayoutProps> = ({ children, title, next, prev }) => {
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>
-          <div className="overflow-y-scroll h-[calc(100%-100px)] p-2">
-            <div className="w-full">
-              {children}
-              <div className="flex justify-between">
-                {prev && <NextPrev title={prev} left />}
-                {next && <NextPrev title={next} />}
+          <Row gap={5}>
+            <Col flex="100%">
+              <div className="overflow-y-scroll h-[calc(100%-80px)] p-3">
+                {children}
+                <div className="flex justify-between">
+                  {prev && <NextPrev title={prev} left />}
+                  {next && <NextPrev title={next} />}
+                </div>
               </div>
-            </div>
-          </div>
+            </Col>
+            <Col span={5}>
+              <>
+                {tag?.map((t) => (
+                  <Link
+                    to={`#${t.toLowerCase().replaceAll(" ", "-")}`}
+                    className="pl-3 py-1"
+                  >
+                    {t}
+                  </Link>
+                ))}
+              </>
+            </Col>
+          </Row>
         </div>
       </div>
     </Layout>
