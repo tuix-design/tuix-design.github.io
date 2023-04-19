@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import { Link } from "gatsby";
 import { doclink } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
-import { Col, Row } from "tuix-design";
+import { Col, Row, Space } from "tuix-design";
 
 interface DocLayoutProps {
   children: ReactNode;
@@ -43,6 +43,7 @@ const DocLayout: FC<DocLayoutProps> = ({
             <Col flex="100%">
               <div className="overflow-y-scroll h-[calc(100vh-150px)] p-3">
                 {children}
+                <Space h={50} />
                 <Row justify="space-between">
                   <Col span={8}>
                     <>{prev && <NextPrev title={prev} left />}</>
