@@ -43,10 +43,14 @@ const DocLayout: FC<DocLayoutProps> = ({
             <Col flex="100%">
               <div className="overflow-y-scroll h-[calc(100vh-150px)] p-3">
                 {children}
-                <div className="flex justify-between">
-                  <div>{prev && <NextPrev title={prev} left />}</div>
-                  <div>{next && <NextPrev title={next} />}</div>
-                </div>
+                <Row justify="space-between">
+                  <Col span={8}>
+                    <>{prev && <NextPrev title={prev} left />}</>
+                  </Col>
+                  <Col span={8}>
+                    <>{next && <NextPrev title={next} />}</>
+                  </Col>
+                </Row>
               </div>
             </Col>
             <>
