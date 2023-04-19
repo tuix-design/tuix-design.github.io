@@ -51,10 +51,15 @@ const DocLayout: FC<DocLayoutProps> = ({
             </Col>
             <Col span={5}>
               <>
-                {tag?.map((t) => (
+                {tag?.map((t, i) => (
                   <Link
+                    key={i}
                     to={`#${t.toLowerCase().replaceAll(" ", "-")}`}
-                    className="pl-3 py-1"
+                    className={`pl-3 py-1 ${
+                      window.location.hash ===
+                        `#${t.toLowerCase().replaceAll(" ", "-")}` &&
+                      "text-purple"
+                    }`}
                   >
                     {t}
                   </Link>

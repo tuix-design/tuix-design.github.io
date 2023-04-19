@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <main className="max-w-[1200px] m-auto p-5">
+    <main className="max-w-[1200px] m-auto px-5">
       <NavBar />
       <div className="w-full h-[calc(100vh-50px)]">{children}</div>
     </main>
