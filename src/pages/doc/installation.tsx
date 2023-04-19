@@ -4,7 +4,7 @@ import { Code, Tab } from "tuix-design";
 
 const Installation: FC = () => {
   return (
-    <DocLayout title="installation">
+    <DocLayout title="installation" next="layout" prev="overview">
       <p className="my-5">
         tuix-design can be intalled via node packaga manager <br />
         Install the last version

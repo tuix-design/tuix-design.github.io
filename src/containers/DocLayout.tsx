@@ -8,8 +8,10 @@ import NextPrev from "../components/NextPrev";
 interface DocLayoutProps {
   children: ReactNode;
   title?: string;
+  next?: string;
+  prev?: string;
 }
-const DocLayout: FC<DocLayoutProps> = ({ children, title }) => {
+const DocLayout: FC<DocLayoutProps> = ({ children, title, next, prev }) => {
   return (
     <Layout>
       <div className="w-full h-full flex mt-5">
@@ -33,8 +35,8 @@ const DocLayout: FC<DocLayoutProps> = ({ children, title }) => {
             <div className="w-full">
               {children}
               <div className="flex justify-between">
-                <NextPrev title="prev" />
-                <NextPrev title="next" />
+                {prev && <NextPrev title={prev} left />}
+                {next && <NextPrev title={next} />}
               </div>
             </div>
           </div>
