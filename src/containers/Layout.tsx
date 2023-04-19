@@ -7,9 +7,11 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <main className="max-w-[1200px] m-auto px-5">
+    <main className="w-screen">
       <NavBar />
-      <div className="w-full h-[calc(100vh-50px)]">{children}</div>
+      <div className="max-w-[1200px] m-auto h-[calc(100vh-50px)] px-5">
+        {children}
+      </div>
     </main>
   );
 };

@@ -20,8 +20,8 @@ const NavBar: FC = (props) => {
     .filter((link) => link !== "")[0];
 
   return (
-    <nav className="h-[50px] w-full flex items-center">
-      <div className="w-full flex justify-between items-center">
+    <nav className="w-full shadow-sm shadow-black">
+      <div className="max-w-[1200px] m-auto w-full flex justify-between items-center">
         <div className="w-[280px]">
           <Link to="/">
             <GatsbyImage
