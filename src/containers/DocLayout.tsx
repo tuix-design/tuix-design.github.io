@@ -41,7 +41,7 @@ const DocLayout: FC<DocLayoutProps> = ({
           </div>
           <Row gap={5}>
             <Col flex="100%">
-              <div className="overflow-y-scroll h-[calc(100%-80px)] p-3">
+              <div className="overflow-y-scroll h-[calc(100vh-150px)] p-3">
                 {children}
                 <div className="flex justify-between">
                   <div>{prev && <NextPrev title={prev} left />}</div>
@@ -49,23 +49,27 @@ const DocLayout: FC<DocLayoutProps> = ({
                 </div>
               </div>
             </Col>
-            <Col span={5}>
-              <>
-                {tag?.map((t, i) => (
-                  <Link
-                    key={i}
-                    to={`#${t.toLowerCase().replaceAll(" ", "-")}`}
-                    className={`pl-3 py-1 ${
-                      window.location.hash ===
-                        `#${t.toLowerCase().replaceAll(" ", "-")}` &&
-                      "text-purple"
-                    }`}
-                  >
-                    {t}
-                  </Link>
-                ))}
-              </>
-            </Col>
+            <>
+              {tag && (
+                <Col span={5}>
+                  <>
+                    {tag?.map((t, i) => (
+                      <Link
+                        key={i}
+                        to={`#${t.toLowerCase().replaceAll(" ", "-")}`}
+                        className={`pl-3 py-1 ${
+                          window.location.hash ===
+                            `#${t.toLowerCase().replaceAll(" ", "-")}` &&
+                          "text-purple"
+                        }`}
+                      >
+                        {t}
+                      </Link>
+                    ))}
+                  </>
+                </Col>
+              )}
+            </>
           </Row>
         </div>
       </div>
