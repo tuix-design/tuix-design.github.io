@@ -1,0 +1,42 @@
+import React, { FC } from "react";
+import DocLayout from "../../containers/DocLayout";
+import { Code, Tab } from "tuix-design";
+
+const Installation: FC = () => {
+  return (
+    <DocLayout title="installation">
+      <p className="my-5">
+        tuix-design can be intalled via node packaga manager <br />
+        Install the last version
+      </p>
+      <Tab header={["yarn", "npm"]} activeStyle={{ color: "#5D00FF" }}>
+        <Code language="bash" mode="dark">{`yarn add tuix-design`}</Code>
+        <Code language="bash" mode="dark">{`npm install tuix-design`}</Code>
+      </Tab>
+
+      <p className="my-5">Install spacific version version</p>
+      <Tab header={["yarn", "npm"]} activeStyle={{ color: "#5D00FF" }}>
+        <Code language="bash" mode="dark">{`yarn add tuix-design@0.0.1`}</Code>
+        <Code
+          language="bash"
+          mode="dark"
+        >{`npm install tuix-design@0.0.1`}</Code>
+      </Tab>
+
+      <p className="my-5">Build from source</p>
+      <Tab header={["https", "ssh"]} activeStyle={{ color: "#5D00FF" }}>
+        <Code
+          language="bash"
+          mode="dark"
+        >{`git clone https://github.com/tuix-design/component.git`}</Code>
+        <Code
+          language="bash"
+          mode="dark"
+        >{`git clone git@github.com:tuix-design/component.git`}</Code>
+      </Tab>
+      <p className="my-5">Now, installations are done. ready to move!</p>
+    </DocLayout>
+  );
+};
+
+export default Installation;

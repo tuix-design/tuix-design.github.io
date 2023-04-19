@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "packages": {
+    "tuix-design": {
+      "signature": "7eeb1829fa4863b8b1bb8d99f9b07cdb"
+    }
+  }
+}

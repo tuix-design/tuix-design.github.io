@@ -8,9 +8,9 @@ interface NextPrevProps {
 const NextPrev: FC<NextPrevProps> = ({ left = false, title }) => {
   return (
     <div
-      className={`border border-gray-400 flex flex-col ${
+      className={`border  flex flex-col ${
         !left && "text-right"
-      } main-radius min-w-[100px] px-2 py-1 cursor-pointer text-gray-400`}
+      } main-radius min-w-[150px] px-2 py-1 cursor-pointer hover:text-purple hover:border-purple`}
     >
       <span className="text-[0.9rem]">{title}</span>
       <span className="text-[0.7rem]">{left ? "prev" : "next"}</span>
