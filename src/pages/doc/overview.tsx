@@ -6,9 +6,13 @@ import DocLayout from "../../containers/DocLayout";
 type Props = {};
 
 const Overview = (props: Props) => {
-  const overview = ["button", "icon", "grid", "layout"];
+  const overview = ["button", "icon", "grid", "layout", "form"];
   return (
     <DocLayout title="Overview" next="installation">
+      <p className="p-2 py-5">
+        We have the ready to use kit and customizable component <br />
+        Feel free to add them to your react based application
+      </p>
       <Row wrap gap={[24, 16]}>
         {overview.map((over) => (
           <Col span={6}>
