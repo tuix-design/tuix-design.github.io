@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { Modal } from "tuix-design";
 import { index, tag, tagSchema } from "../utils/constant";
 import { search } from "../utils/helper";
@@ -17,47 +17,40 @@ const Search: FC<SearchProps> = () => {
     });
     setTags(res);
   };
-  window.onkeydown = (e) => {
-    if (e.key === "k" && e.ctrlKey) {
-      e.preventDefault();
-      mainRef.current?.click();
-    }
-  };
   return (
-    <Modal className="w-1/2" modalClass="!bg-[rgba(0,0,0,0.8)]">
+    <Modal
+      className="w-1/2"
+      modalClass="!bg-[rgba(0,0,0,0.8)]"
+      position="start"
+      shortcut="k"
+    >
       <div
         ref={mainRef}
         className="border main-radius py-1 px-3 cursor-pointer"
       >
         search ctrl+k
       </div>
-      <div className="w-1/2 bg-dark">
+      <div className="w-1/2 bg-dark mt-32 main-radius">
         <input
           placeholder="search"
           className="bg-transparent outline-none w-full border-b p-5 rounded-none"
           onChange={(e) => onSearch(e.target.value)}
+          autoFocus
+          onFocus={(e) => onSearch(e.target.value)}
         />
         <div className="flex flex-col p-5 max-h-[300px] overflow-y-auto">
-          {tags.map((tag) => {
+          {tags.map((tag, i) => {
             return (
-              <>
-                <Link
-                  to=""
-                  className="p-2 py-3 my-2 main-radius bg-gray-950 hover:bg-purple"
-                >
-                  <span>{tag.doc}</span>
-                </Link>
-                {tag.tag.split(",").map((id: string) => (
-                  <Link
-                    to=""
-                    className="p-2 pl-4 py-3 my-2 main-radius bg-gray-950 hover:bg-purple"
-                  >
-                    <span># {id}</span>
-                  </Link>
-                ))}
-              </>
+              <Link
+                key={i}
+                to={`/doc/${tag.link}`}
+                className="search-result-show h-12 flex items-center  px-2 my-2 main-radius bg-gray-900 hover:bg-purple"
+              >
+                <span>{tag.label}</span>
+              </Link>
             );
           })}
+          {tags.length === 0 && "No result"}
         </div>
       </div>
     </Modal>

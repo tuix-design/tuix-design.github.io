@@ -3,7 +3,8 @@ export const getId = (tag: string[], index: number) => {
 };
 /**function to clean string */
 const tokennize = (str: string) => {
-  let res = str.replaceAll(",", " ");
+  let res = str.replace(/[" "]g/, "");
+  res = res.toLowerCase();
   return res;
 };
 /**funxtion to search documentation
@@ -11,18 +12,16 @@ const tokennize = (str: string) => {
  * @param {any} index:the inverted index of data as object
  */
 export const search = (query: string, index: any) => {
-  const formatQuery = tokennize(query);
   let result: number[] = [];
-  formatQuery.split(" ").forEach((qr: string) => {
-    Object.keys(index)
-      .filter((k) => k.includes(qr))
-      .forEach((idx) => {
-        index[idx].forEach((id: number) => {
-          if (result.indexOf(id) === -1) {
-            result.push(id);
-          }
-        });
+  query.split(" ").forEach((qr: string) => {
+    const formatQuery = tokennize(qr);
+    if (index[formatQuery]) {
+      index[formatQuery].forEach((id: number) => {
+        if (result.indexOf(id) === -1) {
+          result.push(id);
+        }
       });
+    }
   });
   return result;
 };

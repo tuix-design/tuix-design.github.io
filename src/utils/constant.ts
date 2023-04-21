@@ -8,31 +8,34 @@ export const doclink = [
 ];
 
 export interface tagSchema {
-  doc: string;
-  tag: string;
+  label: string;
+  link: string;
 }
 
 export const tag: tagSchema[] = [
+  { label: "installation", link: "installation" },
+  { label: "install stable version", link: "installation/#stable-version" },
   {
-    doc: "installation",
-    tag: "stable version,latest version,build from source",
+    label: "install specific version",
+    link: "installation/#specific-version",
   },
-  {
-    doc: "button",
-    tag: "primary,secondary,api",
-  },
+  { label: "build from source", link: "installation/#build-from-source" },
+  { label: "button", link: "button" },
+  { label: "button primary", link: "button/#primary" },
+  { label: "button secondary", link: "button/#secondary" },
+  { label: "button disabled", link: "button/#disabled" },
 ];
 
 export const index = {
-  stable: [0],
-  version: [0, 0],
-  latest: [0],
-  build: [0],
-  from: [0],
-  source: [0],
-  installation: [0],
-  primary: [1],
-  secondary: [1],
-  api: [1],
-  button: [1],
+  install: [0],
+  stable: [1],
+  version: [1, 2],
+  specific: [2],
+  build: [3],
+  from: [3],
+  source: [3],
+  button: [4],
+  primary: [5],
+  secondary: [6],
+  disabled: [7],
 };
