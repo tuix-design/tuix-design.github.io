@@ -3,10 +3,10 @@ import DocLayout from "../../containers/DocLayout";
 import { Code, Tab } from "tuix-design";
 
 const Installation: FC = () => {
-  const tag = ["stable version", "latest version", "build from source"];
+  const tag = ["stable version", "spacific version", "build from source"];
   return (
     <DocLayout title="installation" next="layout" prev="overview" tag={tag}>
-      <p className="my-5">
+      <p id="stable-version" className="my-5">
         tuix-design can be intalled via node packaga manager <br />
         Install the last version
       </p>
@@ -15,7 +15,9 @@ const Installation: FC = () => {
         <Code language="bash" mode="dark">{`npm install tuix-design`}</Code>
       </Tab>
 
-      <p className="my-5">Install spacific version version</p>
+      <p id="spacific-version" className="my-5">
+        Install spacific version version
+      </p>
       <Tab header={["yarn", "npm"]} activeStyle={{ color: "#5D00FF" }}>
         <Code language="bash" mode="dark">{`yarn add tuix-design@0.0.1`}</Code>
         <Code
@@ -24,7 +26,9 @@ const Installation: FC = () => {
         >{`npm install tuix-design@0.0.1`}</Code>
       </Tab>
 
-      <p className="my-5">Build from source</p>
+      <p id="build-from-source" className="my-5">
+        Build from source
+      </p>
       <Tab header={["https", "ssh"]} activeStyle={{ color: "#5D00FF" }}>
         <Code
           language="bash"
