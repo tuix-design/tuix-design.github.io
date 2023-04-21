@@ -29,18 +29,24 @@ const ApiTable: FC<ApiTableProps> = ({ data, id }) => {
       <table className="w-full overflow-x-auto text-gray-300 rounded-sm">
         <thead>
           <tr>
-            {header.map((head) => (
-              <th className="capitalize font-normal text-left border border-gray-500 p-4">
+            {header.map((head, i) => (
+              <th
+                key={i}
+                className="capitalize font-normal text-left border border-gray-500 p-4"
+              >
                 {head}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data?.map((item: dataSchema) => (
-            <tr>
-              {header.map((head: dataKey) => (
-                <td className="text-sm border border-gray-500 hover:border-white p-4">
+          {data?.map((item: dataSchema, i) => (
+            <tr key={i}>
+              {header.map((head: dataKey, i) => (
+                <td
+                  key={i}
+                  className="text-sm border border-gray-500 hover:border-white p-4"
+                >
                   {item[head]}
                 </td>
               ))}
