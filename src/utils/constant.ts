@@ -42,4 +42,18 @@ export const index = {
   disabled: [7],
 };
 
-export const Icons = ["Home", "Search", "Check", "Search"];
+export const Icons = [
+  "Home",
+  "Lock",
+  "Check",
+  "Search",
+  "Chevron",
+  "Menu",
+  "Ellipsis",
+  "Eye",
+  "EyeSlash",
+  "File",
+  "Copy",
+  "Close",
+  "Down",
+];
