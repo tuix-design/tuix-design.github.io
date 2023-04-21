@@ -1,6 +1,8 @@
 export const doclink = [
   "overview",
   "installation",
+  "button",
+  "icon",
   "Layout",
   "Row",
   "Col",
@@ -39,3 +41,50 @@ export const index = {
   secondary: [6],
   disabled: [7],
 };
+
+export const Icons = [
+  "Home",
+  "Lock",
+  "Check",
+  "Search",
+  "Chevron",
+  "Menu",
+  "Ellipsis",
+  "Eye",
+  "EyeSlash",
+  "File",
+  "Copy",
+  "Close",
+  "Down",
+];
+
+export const apiIcon = [
+  {
+    props: "name",
+    type: "IconsName",
+    description: "Name of the icon to render",
+    default: "Null",
+    status: "required",
+  },
+  {
+    props: "color",
+    type: "string",
+    description: "Icon's color",
+    default: "#00000",
+    status: "optional",
+  },
+  {
+    props: "size",
+    type: "number",
+    description: "Icon's size in pixels",
+    default: "24",
+    status: "optional",
+  },
+  {
+    props: "rotate",
+    type: "number",
+    description: "Icon's rotation in degree",
+    default: "0",
+    status: "optional",
+  },
+];
