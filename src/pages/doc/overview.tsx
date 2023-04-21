@@ -14,8 +14,8 @@ const Overview = (props: Props) => {
         Feel free to add them to your react based application
       </p>
       <Row wrap gap={[24, 16]}>
-        {overview.map((over) => (
-          <Col span={6}>
+        {overview.map((over, i) => (
+          <Col key={i} span={6}>
             <Link to={`/doc/${over}`}>
               <Card
                 image={`/${over}.png`}

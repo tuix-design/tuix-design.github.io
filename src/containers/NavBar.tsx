@@ -3,6 +3,7 @@ import { FC } from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Github from "../images/github.svg";
+import Search from "../components/Search";
 
 const NavBar: FC = (props) => {
   const logo = useStaticQuery(graphql`
@@ -36,12 +37,7 @@ const NavBar: FC = (props) => {
             pathname === "doc" ? "grow" : "w-1/2"
           }`}
         >
-          {pathname === "doc" && (
-            <input
-              className="outline-none bg-transparent border border-gray-400 px-2"
-              placeholder="Search ctrl+k"
-            />
-          )}
+          {pathname === "doc" && <Search />}
           {pathname !== "doc" && (
             <>
               <Link to="/doc">Documentation</Link>

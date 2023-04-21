@@ -20,4 +20,18 @@ button,
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
   background-color: #585858;
+  overflow: hidden;
+}
+
+.search-result-show {
+  animation: result-show 0.1s;
+}
+
+@keyframes result-show {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 48px;
+  }
 }

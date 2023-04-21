@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         purple: "#5D00FF",
         orange: "#FF9100",
+        dark: "#01041b",
       },
     },
   },
