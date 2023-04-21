@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { Modal } from "tuix-design";
 import { index, tag, tagSchema } from "../utils/constant";
 import { search } from "../utils/helper";
@@ -8,7 +8,6 @@ interface SearchProps {}
 
 const Search: FC<SearchProps> = () => {
   const [tags, setTags] = useState<tagSchema[]>([]);
-  const mainRef = useRef<HTMLDivElement>(null);
   const onSearch = (value: string) => {
     const result = search(value, index);
     let res: tagSchema[] = [];
@@ -17,17 +16,31 @@ const Search: FC<SearchProps> = () => {
     });
     setTags(res);
   };
+
+  const modal = useCallback((node: any) => {
+    if (node) {
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          e.preventDefault();
+          node.close();
+        }
+        if (e.key === "k" && e.ctrlKey) {
+          e.preventDefault();
+          node.show();
+        }
+      });
+    }
+  }, []);
+
   return (
     <Modal
+      ref={modal}
       className="w-1/2"
       modalClass="!bg-[rgba(0,0,0,0.8)]"
       position="start"
       shortcut="k"
     >
-      <div
-        ref={mainRef}
-        className="border main-radius py-1 px-3 cursor-pointer"
-      >
+      <div className="border main-radius py-1 px-3 cursor-pointer">
         search ctrl+k
       </div>
       <div className="w-1/2 bg-dark mt-32 main-radius">
