@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 import React from "react";
 import Layout from "./Layout";
 import { Link } from "gatsby";
@@ -20,6 +20,7 @@ const DocLayout: FC<DocLayoutProps> = ({
   prev,
   tag,
 }) => {
+  const [hash, setHash] = useState<string>();
   return (
     <Layout>
       <div className="w-full h-full flex mt-5">
@@ -59,17 +60,28 @@ const DocLayout: FC<DocLayoutProps> = ({
                 <Col span={5}>
                   <>
                     {tag?.map((t, i) => (
-                      <Link
+                      <span
                         key={i}
-                        to={`#${t.toLowerCase().replaceAll(" ", "-")}`}
-                        className={`pl-3 py-1 ${
-                          window.location.hash ===
-                            `#${t.toLowerCase().replaceAll(" ", "-")}` &&
+                        className={`cursor-pointer pl-3 py-1 ${
+                          hash === `${t.toLowerCase().replaceAll(" ", "-")}` &&
                           "text-purple"
                         }`}
+                        onClick={(e) => {
+                          const id = t.toLowerCase().replaceAll(" ", "-");
+                          setHash(id);
+                          e.preventDefault();
+                          document
+                            .getElementById(id)
+                            ?.scrollIntoView({ behavior: "smooth" });
+                          window.history.pushState(
+                            {},
+                            "",
+                            `${window.location.pathname}#${id}`
+                          );
+                        }}
                       >
                         {t}
-                      </Link>
+                      </span>
                     ))}
                   </>
                 </Col>
