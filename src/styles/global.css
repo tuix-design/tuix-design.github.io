@@ -9,6 +9,7 @@ body {
 }
 input,
 button,
+select,
 .main-radius {
   border-radius: 3px;
 }
