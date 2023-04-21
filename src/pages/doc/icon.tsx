@@ -1,15 +1,21 @@
 import React, { FC, useState } from "react";
 import { Input } from "tuix-design";
+import ApiTable from "../../containers/ApiTable";
 import DocLayout from "../../containers/DocLayout";
 import IconItem from "../../containers/IconItem";
-import { Icons } from "../../utils/constant";
+import { apiIcon, Icons } from "../../utils/constant";
 
 interface IconProps {}
 
 const icon: FC<IconProps> = () => {
   const [allIcons, setAllIcons] = useState<string[]>(Icons);
   return (
-    <DocLayout title="Icon" next="layout" prev="button">
+    <DocLayout
+      title="Icon"
+      next="layout"
+      prev="button"
+      tag={["icons", "icons api"]}
+    >
       <div className="border-b w-full p-4">
         <Input
           placeholder="Search icon"
@@ -22,11 +28,12 @@ const icon: FC<IconProps> = () => {
           onEmpty={() => setAllIcons(Icons)}
         />
       </div>
-      <div className="w-full flex flex-wrap gap-5 p-5">
+      <div id="icons" className="w-full flex flex-wrap gap-5 p-5">
         {allIcons.map((icn: any, i) => (
           <IconItem key={i} name={icn} />
         ))}
       </div>
+      <ApiTable id="" data={apiIcon} />
     </DocLayout>
   );
 };
