@@ -23,7 +23,9 @@ const icon: FC<IconProps> = () => {
       >
         {/* tab usage */}
         <div>
-          <p className="my-2 font-medium">Setup</p>
+          <p id="setup" className="my-2 font-medium">
+            Setup
+          </p>
           <p className="my-3 text-sm text-gray-200">
             In order to use icon, import Icon component
           </p>
@@ -32,7 +34,9 @@ const icon: FC<IconProps> = () => {
             language="javascript"
           >{`import {Icon} from "tuix-design"`}</Code>
           <Space h={40} />
-          <p className="my-2 font-medium">Usage</p>
+          <p id="usage" className="my-2 font-medium">
+            Usage
+          </p>
           <p className="my-3 text-sm text-gray-200">
             Ready to implement the icons,
           </p>
@@ -71,7 +75,7 @@ const icon: FC<IconProps> = () => {
 <Icon name="Home" color="rgb(49,129,187)" size={32} />
 <Icon name="Home" color="purple" size={40} />`}</Code>
           <Space h={40} />
-          <ApiTable id="" data={apiIcon} />
+          <ApiTable id="api" data={apiIcon} />
         </div>
         {/* tab icons */}
         <div>
