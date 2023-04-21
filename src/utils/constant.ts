@@ -1,6 +1,8 @@
 export const doclink = [
   "overview",
   "installation",
+  "button",
+  "icon",
   "Layout",
   "Row",
   "Col",
@@ -39,3 +41,5 @@ export const index = {
   secondary: [6],
   disabled: [7],
 };
+
+export const Icons = ["Home", "Search", "Check", "Search"];
