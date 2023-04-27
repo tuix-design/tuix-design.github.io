@@ -20,7 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
           front end kit, ready to use and customizable component.
         </p>
         <div className="flex justify-evenly w-1/2 sm:w-full">
-          <Link to="" className="bg-purple py-1 px-3">
+          <Link to="/doc/" className="bg-purple py-1 px-3">
             get started
           </Link>
           <a href="https://github.com/tuix-design" target="_blank">
