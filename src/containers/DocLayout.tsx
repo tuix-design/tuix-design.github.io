@@ -24,7 +24,7 @@ const DocLayout: FC<DocLayoutProps> = ({
   return (
     <Layout>
       <div className="w-full h-full flex mt-5">
-        <div className="w-[200px] p-1">
+        <div className="w-[200px] p-1 md:hidden">
           {doclink.map((doc, i) => (
             <Link
               key={i}
@@ -36,7 +36,7 @@ const DocLayout: FC<DocLayoutProps> = ({
             </Link>
           ))}
         </div>
-        <div className="grow w-full h-full px-5">
+        <div className="grow w-full h-full px-5 md:w-screen md:overflow-x-auto">
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>

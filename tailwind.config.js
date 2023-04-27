@@ -16,6 +16,17 @@ module.exports = {
         orange: "#FF9100",
         dark: "#01041b",
       },
+      screens: {
+        lg: {
+          min: "960px",
+        },
+        md: {
+          max: "960px",
+        },
+        sm: {
+          max: "550px",
+        },
+      },
     },
   },
   plugins: [],

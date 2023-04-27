@@ -35,15 +35,21 @@ const Search: FC<SearchProps> = () => {
   return (
     <Modal
       ref={modal}
-      className="w-1/2"
+      className="w-1/2 md:w-auto"
       modalClass="!bg-[rgba(0,0,0,0.8)]"
       position="start"
       shortcut="k"
     >
-      <div className="border main-radius py-1 px-3 cursor-pointer">
-        search ctrl+k
+      <div className="w-fit">
+        <div className="border main-radius py-1 px-3 cursor-pointer md:hidden">
+          search ctrl+k
+        </div>
+        <div className="w-fit lg:hidden">
+          <Icon name="Search" color="#fff" />
+        </div>
       </div>
-      <div className="w-1/2 bg-dark mt-32 main-radius">
+
+      <div className="w-1/2 md:w-2/3 bg-dark mt-32 main-radius">
         <div className="flex items-center border-b p-5">
           <Icon name="Search" color="#f2f2f2" />
 
