@@ -1,7 +1,7 @@
 import { FC, ReactNode, useState } from "react";
 import React from "react";
 import Layout from "./Layout";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { doclink } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
 import { Col, Row, Space } from "tuix-design";
@@ -23,6 +23,21 @@ const DocLayout: FC<DocLayoutProps> = ({
   const [hash, setHash] = useState<string>();
   return (
     <Layout>
+      <div className="flex w-full py-5 lg:hidden">
+        <select
+          className="bg-transparent outline-none border w-full p-2"
+          onChange={(e) => {
+            navigate(`/doc/${e.target.value.toLowerCase()}`);
+          }}
+          defaultValue={window.location.pathname.replace(/\/doc\/|\//g, "")}
+        >
+          {doclink.map((doc, i) => (
+            <option key={i} className="bg-black">
+              {doc}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="w-full h-full flex mt-5">
         <div className="w-[200px] p-1 md:hidden">
           {doclink.map((doc, i) => (
@@ -42,21 +57,21 @@ const DocLayout: FC<DocLayoutProps> = ({
           </div>
           <Row gap={5}>
             <Col flex="100%">
-              <div className="overflow-y-scroll h-[calc(100vh-150px)] p-3">
+              <div className="overflow-y-scroll h-[calc(100vh-150px)] md:h-[calc(100vh-230px)] p-3">
                 {children}
                 <Space h={50} />
                 <Row justify="space-between">
-                  <Col span={8}>
+                  <Col span={10}>
                     <>{prev && <NextPrev title={prev} left />}</>
                   </Col>
-                  <Col span={8}>
+                  <Col span={10}>
                     <>{next && <NextPrev title={next} />}</>
                   </Col>
                 </Row>
               </div>
             </Col>
             <>
-              {tag && (
+              {tag && window.innerWidth > 960 && (
                 <Col span={5}>
                   <>
                     {tag?.map((t, i) => (

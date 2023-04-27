@@ -15,7 +15,7 @@ const Overview = (props: Props) => {
       </p>
       <Row wrap gap={[24, 16]}>
         {overview.map((over, i) => (
-          <Col key={i} span={6}>
+          <Col key={i} span={window.innerWidth > 960 ? 6 : 24}>
             <Link to={`/doc/${over}`}>
               <Card
                 image={`/${over}.png`}
