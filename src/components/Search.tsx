@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useRef, useState } from "react";
 import { Icon, Modal } from "tuix-design";
 import { index, tag, tagSchema } from "../utils/constant";
 import { search } from "../utils/helper";
@@ -8,6 +8,7 @@ interface SearchProps {}
 
 const Search: FC<SearchProps> = () => {
   const [tags, setTags] = useState<tagSchema[]>([]);
+  const modalRef = useRef<any>(null);
   const onSearch = (value: string) => {
     const result = search(value, index);
     let res: tagSchema[] = [];
@@ -19,6 +20,7 @@ const Search: FC<SearchProps> = () => {
 
   const modal = useCallback((node: any) => {
     if (node) {
+      modalRef.current = node;
       window.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           e.preventDefault();
@@ -72,6 +74,12 @@ const Search: FC<SearchProps> = () => {
                 className={`search-result-show h-12 flex items-center  px-2 my-2 ${
                   id && "pl-4"
                 } main-radius bg-gray-900 hover:bg-purple`}
+                onClick={() => {
+                  const modal = modalRef.current;
+                  if (modal) {
+                    modal.close();
+                  }
+                }}
               >
                 <span>
                   {<Icon name={id ? "Down" : "File"} size={32} color="#fff" />}
