@@ -40,12 +40,12 @@ const Search: FC<SearchProps> = () => {
       position="start"
       shortcut="k"
     >
-      <div className="w-fit">
+      <div>
         <div className="border main-radius py-1 px-3 cursor-pointer md:hidden">
           search ctrl+k
         </div>
         <div className="w-fit lg:hidden">
-          <Icon name="Search" color="#fff" />
+          <Icon name="Search" color="#fff" size={32} />
         </div>
       </div>
 

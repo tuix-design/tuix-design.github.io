@@ -64,11 +64,11 @@ const NavBar: FC = (props) => {
           </a>
         </div>
       </div>
+      {/* drawer on mobile */}
       <Div
         ref={(node) => {
           const draw = drawerController.current;
           if (node && draw) {
-            console.log(node);
             draw.onclick = () => {
               if (isShow) {
                 node.reverse();
