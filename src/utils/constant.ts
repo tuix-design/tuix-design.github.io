@@ -1,18 +1,11 @@
-export const sideMenu: any = {
+interface sideMenuSchema {
+  [key: string]: string[];
+}
+
+export const sideMenu: sideMenuSchema = {
   menu: ["overview", "installation"],
   general: ["button", "icon", "style"],
 };
-
-export const doclink = [
-  "overview",
-  "installation",
-  "button",
-  "icon",
-  "Layout",
-  "Row",
-  "Col",
-  "Grid",
-];
 
 export interface tagSchema {
   label: string;

@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from "react";
 import React from "react";
 import Layout from "./Layout";
 import { Link, navigate } from "gatsby";
-import { doclink, sideMenu } from "../utils/constant";
+import { sideMenu } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
 import { Col, Row, Space } from "tuix-design";
 
@@ -32,11 +32,13 @@ const DocLayout: FC<DocLayoutProps> = ({
           }}
           defaultValue={window.location.pathname.replace(/\/doc\/|\//g, "")}
         >
-          {doclink.map((doc, i) => (
-            <option key={i} className="bg-black">
-              {doc}
-            </option>
-          ))}
+          {Object.values(sideMenu).map((menu) =>
+            menu.map((doc, i) => (
+              <option key={i} className="bg-black">
+                {doc}
+              </option>
+            ))
+          )}
         </select>
       </div>
 
@@ -44,8 +46,10 @@ const DocLayout: FC<DocLayoutProps> = ({
         {/* navigation desktop */}
         <div className="w-[200px] p-1 md:hidden">
           {Object.keys(sideMenu).map((title, i) => (
-            <>
-              <p className="my-3 capitalize text-gray-500">{title}</p>
+            <div key={i}>
+              <p key={i} className="my-3 capitalize text-gray-500">
+                {title}
+              </p>
               {sideMenu[title].map((doc: string, i: number) => (
                 <Link
                   key={i}
@@ -56,7 +60,7 @@ const DocLayout: FC<DocLayoutProps> = ({
                   {doc}
                 </Link>
               ))}
-            </>
+            </div>
           ))}
         </div>
         <div className="w-full h-full px-5 md:px-2">
