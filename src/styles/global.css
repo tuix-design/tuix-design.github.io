@@ -2,6 +2,10 @@
 @tailwind utilities;
 @tailwind components;
 
+html {
+  overflow: unset;
+}
+
 body {
   background-color: #01041b;
   color: #ffff;
@@ -15,6 +19,7 @@ select,
 
 ::-webkit-scrollbar {
   width: 2px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-thumb {

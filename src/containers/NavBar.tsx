@@ -25,8 +25,8 @@ const NavBar: FC = (props) => {
   const [isShow, setIsShow]: any = useState<boolean>(false);
 
   return (
-    <nav className="w-full shadow-md shadow-black relative">
-      <div className="max-w-[1200px] m-auto px-2 w-full flex justify-between items-center md:py-3">
+    <nav className="w-full shadow-md shadow-black bg-[#01041b] !sticky top-0">
+      <div className=" max-w-[1200px] m-auto px-2 w-full flex justify-between items-center md:py-3">
         <div className="w-[280px]">
           <Link to="/">
             <GatsbyImage

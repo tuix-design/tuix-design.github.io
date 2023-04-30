@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <main className="overflow-x-hidden">
+    <main className="min-h-screen overflow-y-clip">
       <NavBar />
       <div className="max-w-[1200px] m-auto px-5">{children}</div>
     </main>
