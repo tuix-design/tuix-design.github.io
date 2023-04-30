@@ -23,6 +23,7 @@ const DocLayout: FC<DocLayoutProps> = ({
   const [hash, setHash] = useState<string>();
   return (
     <Layout>
+      {/* navigation on mobile */}
       <div className="flex w-full py-5 lg:hidden">
         <select
           className="bg-transparent outline-none border w-full p-2"
@@ -38,7 +39,9 @@ const DocLayout: FC<DocLayoutProps> = ({
           ))}
         </select>
       </div>
+
       <div className="w-full h-full flex mt-5">
+        {/* navigation desktop */}
         <div className="w-[200px] p-1 md:hidden">
           {doclink.map((doc, i) => (
             <Link
@@ -51,13 +54,14 @@ const DocLayout: FC<DocLayoutProps> = ({
             </Link>
           ))}
         </div>
-        <div className="grow w-full h-full px-5 md:w-screen md:overflow-x-auto">
+        <div className="w-full h-full px-5 md:px-2">
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>
           <Row gap={5}>
-            <Col flex="100%">
-              <div className="overflow-y-scroll h-[calc(100vh-150px)] md:h-[calc(100vh-230px)] p-3">
+            {/* main content */}
+            <Col span={24}>
+              <div className="w-full p-3 md:p-0">
                 {children}
                 <Space h={50} />
                 <Row justify="space-between">
@@ -71,6 +75,7 @@ const DocLayout: FC<DocLayoutProps> = ({
               </div>
             </Col>
             <>
+              {/* tag navigation */}
               {tag && window.innerWidth > 960 && (
                 <Col span={5}>
                   <>
