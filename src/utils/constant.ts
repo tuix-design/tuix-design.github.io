@@ -3,7 +3,7 @@ interface sideMenuSchema {
 }
 
 export const sideMenu: sideMenuSchema = {
-  menu: ["overview", "installation"],
+  start: ["overview", "installation"],
   general: ["button", "icon", "style"],
 };
 
