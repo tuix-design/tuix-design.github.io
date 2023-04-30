@@ -1,13 +1,11 @@
-export const doclink = [
-  "overview",
-  "installation",
-  "button",
-  "icon",
-  "Layout",
-  "Row",
-  "Col",
-  "Grid",
-];
+interface sideMenuSchema {
+  [key: string]: string[];
+}
+
+export const sideMenu: sideMenuSchema = {
+  start: ["overview", "installation"],
+  general: ["button", "icon", "style"],
+};
 
 export interface tagSchema {
   label: string;

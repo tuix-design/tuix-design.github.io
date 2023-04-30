@@ -3,7 +3,7 @@ import DocLayout from "../../containers/DocLayout";
 import { Code, Tab } from "tuix-design";
 
 const Installation: FC = () => {
-  const tag = ["stable version", "spacific version", "build from source"];
+  const tag = ["stable version", "specific version", "build from source"];
   return (
     <DocLayout title="installation" next="layout" prev="overview" tag={tag}>
       <p id="stable-version" className="my-5">

@@ -24,9 +24,9 @@ const ApiTable: FC<ApiTableProps> = ({ data, id }) => {
     "description",
   ];
   return (
-    <div id={id} className="my-4">
+    <div id={id} className="my-4 w-full overflow-x-auto">
       <p className="my-2">API</p>
-      <table className="w-full overflow-x-auto text-gray-300 rounded-sm">
+      <table className="w-full text-gray-300 rounded-sm">
         <thead>
           <tr>
             {header.map((head, i) => (

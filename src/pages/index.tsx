@@ -10,17 +10,17 @@ const IndexPage: React.FC<PageProps> = () => {
         <div className="w-[50px]">
           <Sign />
         </div>
-        <h1 className="text-[60px] text-center font-bold leading-tight">
+        <h1 className="text-[3em] text-center font-bold leading-tight">
           tuix design
         </h1>
-        <h2 className="text-[50px] font-semibold">
+        <h2 className="text-[2em] font-semibold">
           code less, <span className="text-purple">build fast</span>
         </h2>
-        <p className="text-[#A8B4EF] my-5">
+        <p className="text-[#A8B4EF] md:text-center my-5">
           front end kit, ready to use and customizable component.
         </p>
-        <div className="flex justify-evenly w-1/2">
-          <Link to="" className="bg-purple py-1 px-3">
+        <div className="flex justify-evenly w-1/2 sm:w-full">
+          <Link to="/doc/" className="bg-purple py-1 px-3">
             get started
           </Link>
           <a href="https://github.com/tuix-design" target="_blank">
