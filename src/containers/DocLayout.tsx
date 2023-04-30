@@ -86,36 +86,31 @@ const DocLayout: FC<DocLayoutProps> = ({
             <>
               {/* tag navigation */}
               {
-                <div className="md:hidden">
-                  <Col span={5}>
-                    <>
-                      {tag?.map((t, i) => (
-                        <span
-                          key={i}
-                          className={`cursor-pointer pl-3 py-1 ${
-                            hash ===
-                              `${t.toLowerCase().replaceAll(" ", "-")}` &&
-                            "text-purple"
-                          }`}
-                          onClick={(e) => {
-                            const id = t.toLowerCase().replaceAll(" ", "-");
-                            setHash(id);
-                            e.preventDefault();
-                            document
-                              .getElementById(id)
-                              ?.scrollIntoView({ behavior: "smooth" });
-                            window.history.pushState(
-                              {},
-                              "",
-                              `${window.location.pathname}#${id}`
-                            );
-                          }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </>
-                  </Col>
+                <div className="md:hidden flex flex-col w-fit min-w-[150px] border-r h-fit">
+                  {tag?.map((t, i) => (
+                    <span
+                      key={i}
+                      className={`cursor-pointer pl-3 py-1 ${
+                        hash === `${t.toLowerCase().replaceAll(" ", "-")}` &&
+                        "text-purple"
+                      } hover:underline`}
+                      onClick={(e) => {
+                        const id = t.toLowerCase().replaceAll(" ", "-");
+                        setHash(id);
+                        e.preventDefault();
+                        document
+                          .getElementById(id)
+                          ?.scrollIntoView({ behavior: "smooth" });
+                        window.history.pushState(
+                          {},
+                          "",
+                          `${window.location.pathname}#${id}`
+                        );
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
               }
             </>
