@@ -30,7 +30,7 @@ const button: FC = (props) => {
         mode="dark"
         language="javascript"
       >{`import {Button} from "tuix-design"`}</Code>
-      <div className="my-3 flex gap-4">
+      <div className="my-3 flex flex-wrap gap-4">
         <Button>primary</Button>
         <Button variant="secondary">secondary</Button>
         <Button variant="success">success</Button>
@@ -59,7 +59,7 @@ const button: FC = (props) => {
       <p id="size" className="py-5">
         Size
       </p>
-      <div className="my-3 flex gap-4">
+      <div className="my-3 flex flex-wrap gap-4">
         <Button size="sm" icon={<Icon size={16} name="Home" color="#fff" />}>
           small
         </Button>
