@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from "react";
 import React from "react";
 import Layout from "./Layout";
 import { Link, navigate } from "gatsby";
-import { doclink } from "../utils/constant";
+import { doclink, sideMenu } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
 import { Col, Row, Space } from "tuix-design";
 
@@ -43,15 +43,20 @@ const DocLayout: FC<DocLayoutProps> = ({
       <div className="w-full h-full flex mt-5">
         {/* navigation desktop */}
         <div className="w-[200px] p-1 md:hidden">
-          {doclink.map((doc, i) => (
-            <Link
-              key={i}
-              activeClassName="bg-gray-900 text-purple"
-              to={`/doc/${doc.toLowerCase()}`}
-              className="px-3 py-2 block w-full hover:bg-gray-900"
-            >
-              {doc}
-            </Link>
+          {Object.keys(sideMenu).map((title, i) => (
+            <>
+              <p className="my-3 capitalize text-gray-500">{title}</p>
+              {sideMenu[title].map((doc: string, i: number) => (
+                <Link
+                  key={i}
+                  activeClassName="bg-gray-900 border-l-2 border-l-purple"
+                  to={`/doc/${doc.toLowerCase()}`}
+                  className="px-3 py-2 block w-full hover:bg-gray-900 main-radius"
+                >
+                  {doc}
+                </Link>
+              ))}
+            </>
           ))}
         </div>
         <div className="w-full h-full px-5 md:px-2">
@@ -76,36 +81,39 @@ const DocLayout: FC<DocLayoutProps> = ({
             </Col>
             <>
               {/* tag navigation */}
-              {tag && window.innerWidth > 960 && (
-                <Col span={5}>
-                  <>
-                    {tag?.map((t, i) => (
-                      <span
-                        key={i}
-                        className={`cursor-pointer pl-3 py-1 ${
-                          hash === `${t.toLowerCase().replaceAll(" ", "-")}` &&
-                          "text-purple"
-                        }`}
-                        onClick={(e) => {
-                          const id = t.toLowerCase().replaceAll(" ", "-");
-                          setHash(id);
-                          e.preventDefault();
-                          document
-                            .getElementById(id)
-                            ?.scrollIntoView({ behavior: "smooth" });
-                          window.history.pushState(
-                            {},
-                            "",
-                            `${window.location.pathname}#${id}`
-                          );
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </>
-                </Col>
-              )}
+              {
+                <div className="md:hidden">
+                  <Col span={5}>
+                    <>
+                      {tag?.map((t, i) => (
+                        <span
+                          key={i}
+                          className={`cursor-pointer pl-3 py-1 ${
+                            hash ===
+                              `${t.toLowerCase().replaceAll(" ", "-")}` &&
+                            "text-purple"
+                          }`}
+                          onClick={(e) => {
+                            const id = t.toLowerCase().replaceAll(" ", "-");
+                            setHash(id);
+                            e.preventDefault();
+                            document
+                              .getElementById(id)
+                              ?.scrollIntoView({ behavior: "smooth" });
+                            window.history.pushState(
+                              {},
+                              "",
+                              `${window.location.pathname}#${id}`
+                            );
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </>
+                  </Col>
+                </div>
+              }
             </>
           </Row>
         </div>

@@ -1,3 +1,8 @@
+export const sideMenu: any = {
+  menu: ["overview", "installation"],
+  general: ["button", "icon", "style"],
+};
+
 export const doclink = [
   "overview",
   "installation",
