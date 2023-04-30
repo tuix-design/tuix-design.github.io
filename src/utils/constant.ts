@@ -56,7 +56,15 @@ export const Icons = [
   "Down",
 ];
 
-export const apiIcon = [
+interface api {
+  props: string;
+  type: string;
+  description: string;
+  default: string;
+  status: string;
+}
+
+export const apiIcon: api[] = [
   {
     props: "name",
     type: "IconsName",
@@ -83,6 +91,59 @@ export const apiIcon = [
     type: "number",
     description: "Icon's rotation in degree",
     default: "0",
+    status: "optional",
+  },
+];
+
+export const apiButton: api[] = [
+  {
+    props: "variant",
+    type: "primary | secondary | success | warning | danger",
+    description: "Button's variant",
+    default: "primary",
+    status: "optional",
+  },
+  {
+    props: "size",
+    type: "sm | md | lg",
+    description: "Button's height",
+    default: "md",
+    status: "optional",
+  },
+  {
+    props: "bordered",
+    type: "boolean",
+    description: "Button's border status",
+    default: "false",
+    status: "optional",
+  },
+  {
+    props: "desabled",
+    type: "boolean",
+    description: "Button's diable status",
+    default: "false",
+    status: "optional",
+  },
+  {
+    props: "rounded",
+    type: "boolean",
+    description: "rounded button",
+    default: "false",
+    status: "optional",
+  },
+  {
+    props: "icon",
+    type: "ReactNode",
+    description: "Button's icon",
+    default: "null",
+    status: "optional",
+  },
+
+  {
+    props: "onClick",
+    type: "()=>void",
+    description: "Button's onClick event",
+    default: "none",
     status: "optional",
   },
 ];
