@@ -86,7 +86,7 @@ const DocLayout: FC<DocLayoutProps> = ({
             <>
               {/* tag navigation */}
               {
-                <div className="md:hidden flex flex-col w-fit min-w-[150px]">
+                <div className="md:hidden flex flex-col w-fit min-w-[150px] border-r h-fit">
                   {tag?.map((t, i) => (
                     <span
                       key={i}
