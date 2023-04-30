@@ -22,7 +22,7 @@ const IconItem: FC<IconItemProps> = ({ name }) => {
   };
   return (
     <Modal modalClass="!bg-[rgba(0,0,0,0.8)]">
-      <div className="bg-gray-900 cursor-pointer p-4 main-radius flex flex-col justify-center items-center hover:bg-purple">
+      <div className="bg-gray-900 w-[100px] cursor-pointer p-4 main-radius flex flex-col justify-center items-center hover:bg-purple">
         <Icon name={name} color="#fff" size={36} />
         <span className="text-sm">{name}</span>
       </div>
