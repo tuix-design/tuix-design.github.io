@@ -5,7 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style"],
-  "data display": ["tooltip"],
+  "data display": ["tooltip", "tab"],
 };
 
 export interface tagSchema {
@@ -176,6 +176,37 @@ export const apiTooltip: api[] = [
     type: "CSSProperties",
     description: "Tooltip's title",
     default: "bg:#000 color:#fff",
+    status: "optional",
+  },
+];
+
+export const apiTab: api[] = [
+  {
+    props: "children",
+    type: "ReactNode",
+    description: "Each tab content",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "header",
+    type: "ReactNode",
+    description: "Tabbar content",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "activeStyle",
+    type: "CSSProperties",
+    description: "Active Tabbar style",
+    default: "None",
+    status: "optional",
+  },
+  {
+    props: "style",
+    type: "CSSProperties",
+    description: "Tabbar style",
+    default: "None",
     status: "optional",
   },
 ];
