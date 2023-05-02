@@ -5,7 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style", "animation"],
-  layout: ["flex", "center", "space", "divider"],
+  layout: ["grid", "flex", "center", "space", "divider"],
   "data display": ["tooltip", "tab"],
 };
 
@@ -391,6 +391,75 @@ export const apiDivider: api[] = [
     type: "string",
     default: "#f4f4f4",
     description: "Divider color",
+    status: "optional",
+  },
+];
+
+export const apiGrid: api[] = [
+  {
+    props: "column",
+    type: "number",
+    default: "1",
+    description: "Grid column number",
+    status: "optional",
+  },
+  {
+    props: "templateColumns",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "templateRows",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "autoRows",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "autoCols",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "templateAreas",
+    type: "string",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+];
+
+export const apiGridItem: api[] = [
+  {
+    props: "gridColumn",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "gridRow",
+    type: "string | number",
+    default: "null",
+    description: "",
+    status: "optional",
+  },
+  {
+    props: "gridArea",
+    type: "string | number",
+    default: "null",
+    description: "",
     status: "optional",
   },
 ];
