@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import { Link, navigate } from "gatsby";
 import { sideMenu } from "../utils/constant";
 import NextPrev from "../components/NextPrev";
-import { Col, Row, Space } from "tuix-design";
+import { Flex, Space } from "tuix-design";
 
 interface DocLayoutProps {
   children: ReactNode;
@@ -67,22 +67,22 @@ const DocLayout: FC<DocLayoutProps> = ({
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>
-          <Row gap={5}>
+          <Flex gap={5}>
             {/* main content */}
-            <Col span={24}>
+            <Flex col={20} grow>
               <div className="w-full p-3 md:p-0">
                 {children}
                 <Space h={50} />
-                <Row justify="space-between">
-                  <Col span={10}>
+                <Flex justify="between">
+                  <Flex col={10}>
                     <>{prev && <NextPrev title={prev} left />}</>
-                  </Col>
-                  <Col span={10}>
+                  </Flex>
+                  <Flex col={10}>
                     <>{next && <NextPrev title={next} />}</>
-                  </Col>
-                </Row>
+                  </Flex>
+                </Flex>
               </div>
-            </Col>
+            </Flex>
             <>
               {/* tag navigation */}
               {
@@ -114,7 +114,7 @@ const DocLayout: FC<DocLayoutProps> = ({
                 </div>
               }
             </>
-          </Row>
+          </Flex>
         </div>
       </div>
     </Layout>
