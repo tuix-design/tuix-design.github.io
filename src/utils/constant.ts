@@ -210,3 +210,30 @@ export const apiTab: api[] = [
     status: "optional",
   },
 ];
+
+export const styleShortCode: any = {
+  display: [
+    {
+      shortcode: "block",
+      css: "display:block",
+    },
+    {
+      shortcode: "inline",
+      css: "display:inline",
+    },
+    {
+      shortcode: "flex",
+      css: "display:flex",
+    },
+  ],
+  size: [
+    {
+      shortcode: "w:value",
+      css: "width:value",
+    },
+    {
+      shortcode: "h:value",
+      css: "height:value",
+    },
+  ],
+};
