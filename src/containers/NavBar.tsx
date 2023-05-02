@@ -44,10 +44,11 @@ const NavBar: FC = (props) => {
           {pathname === "doc" && <Search />}
           {pathname !== "doc" && (
             <>
-              <div className="md:hidden w-full flex justify-between">
+              <div className="md:hidden w-full flex justify-evenly">
                 <Link to="/doc">Documentation</Link>
-                <Link to="/showcase">showcase</Link>
-                <Link to="/sponsor">sponsor</Link>
+                <a href="https://tojonir.github.io" target="_blank">
+                  Author
+                </a>
               </div>
               <div ref={drawerController} className="lg:hidden">
                 <Icon name={isShow ? "Close" : "Menu"} color="#fff" size={32} />
