@@ -87,11 +87,11 @@ const DocLayout: FC<DocLayoutProps> = ({
             <>
               {/* tag navigation */}
               {
-                <div className="md:hidden flex flex-col w-fit min-w-[150px] sticky top-0 h-fit">
+                <div className="md:hidden flex flex-col w-fit sticky top-0 h-fit">
                   {tag?.map((t, i) => (
                     <span
                       key={i}
-                      className={`cursor-pointer pl-3 py-1 ${
+                      className={`cursor-pointer min-w-[150px] pl-3 py-1 ${
                         hash === `${t.toLowerCase().replaceAll(" ", "-")}` &&
                         "text-purple"
                       } hover:underline`}
