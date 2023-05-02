@@ -5,6 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style", "animation"],
+  layout: ["flex", "center"],
   "data display": ["tooltip", "tab"],
 };
 
@@ -262,6 +263,79 @@ export const apiOptionAnimation: api[] = [
     type: "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end",
     default: "linear",
     description: "animation easing",
+    status: "optional",
+  },
+];
+
+export const apiFlex: api[] = [
+  {
+    props: "w",
+    type: "0 - 24",
+    default: "0",
+    description: "Flex width using 24 grid system",
+    status: "optional",
+  },
+  {
+    props: "h",
+    type: "string | number",
+    default: "auto",
+    description: "Flex height",
+    status: "optional",
+  },
+  {
+    props: "align",
+    type: "start | end | center",
+    default: "start",
+    description: "align content",
+    status: "optional",
+  },
+  {
+    props: "justify",
+    type: "start | end | center | between | evenly",
+    default: "start",
+    description: "justify content",
+    status: "optional",
+  },
+  {
+    props: "col",
+    type: "boolean",
+    default: "false",
+    description: "flex column",
+    status: "optional",
+  },
+  {
+    props: "reverse",
+    type: "boolean",
+    default: "false",
+    description: "flex reverse",
+    status: "optional",
+  },
+  {
+    props: "wrap",
+    type: "boolean",
+    default: "false",
+    description: "flex wrap",
+    status: "optional",
+  },
+  {
+    props: "grow",
+    type: "boolean",
+    default: "false",
+    description: "flex grow",
+    status: "optional",
+  },
+  {
+    props: "shrink",
+    type: "boolean",
+    default: "false",
+    description: "flex shrink",
+    status: "optional",
+  },
+  {
+    props: "gap",
+    type: "number",
+    default: "0",
+    description: "flex gap in pixels",
     status: "optional",
   },
 ];

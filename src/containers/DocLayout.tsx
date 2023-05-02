@@ -69,15 +69,15 @@ const DocLayout: FC<DocLayoutProps> = ({
           </div>
           <Flex gap={5}>
             {/* main content */}
-            <Flex col={20} grow>
+            <Flex w={20} grow>
               <div className="w-full p-3 md:p-0">
                 {children}
                 <Space h={50} />
                 <Flex justify="between">
-                  <Flex col={10}>
+                  <Flex w={10}>
                     <>{prev && <NextPrev title={prev} left />}</>
                   </Flex>
-                  <Flex col={10}>
+                  <Flex w={10}>
                     <>{next && <NextPrev title={next} />}</>
                   </Flex>
                 </Flex>
