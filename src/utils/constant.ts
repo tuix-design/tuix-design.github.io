@@ -340,6 +340,23 @@ export const apiFlex: api[] = [
   },
 ];
 
+export const apiSpace: api[] = [
+  {
+    props: "w",
+    type: "string | number",
+    default: "0",
+    description: "Space width",
+    status: "optional",
+  },
+  {
+    props: "h",
+    type: "string | number",
+    default: "0",
+    description: "Space height",
+    status: "optional",
+  },
+];
+
 export const styleShortCode: any = {
   display: [
     {
