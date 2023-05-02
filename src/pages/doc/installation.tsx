@@ -5,7 +5,7 @@ import { Code, Tab } from "tuix-design";
 const Installation: FC = () => {
   const tag = ["stable version", "specific version", "build from source"];
   return (
-    <DocLayout title="installation" next="layout" prev="overview" tag={tag}>
+    <DocLayout title="installation" next="button" prev="overview" tag={tag}>
       <p id="stable-version" className="my-5">
         tuix-design can be intalled via node packaga manager <br />
         Install the last version

@@ -7,7 +7,12 @@ import { apiTooltip } from "../../utils/constant";
 
 const tooltip: FC = () => {
   return (
-    <DocLayout title="tooltip" tag={["usage", "position", "api"]}>
+    <DocLayout
+      title="tooltip"
+      tag={["usage", "position", "api"]}
+      prev="divider"
+      next="tab"
+    >
       <p id="usage" className="py-5">
         Tooltip is a helper to quick inform user
       </p>

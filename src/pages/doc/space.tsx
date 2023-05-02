@@ -7,7 +7,7 @@ import { Box, Center, Code, Space } from "tuix-design";
 
 const space: FC = () => {
   return (
-    <DocLayout title="space" next="divider" prev="space">
+    <DocLayout title="space" next="divider" prev="center">
       <p id="basic" className="py-5">
         Basic usage
       </p>

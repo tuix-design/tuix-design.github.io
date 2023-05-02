@@ -10,7 +10,7 @@ const animation: FC = () => {
   return (
     <DocLayout
       title="animation"
-      next="tooltip"
+      next="flex"
       prev="style"
       tag={["basic", "manual", "api", "option properties"]}
     >

@@ -5,7 +5,7 @@ import { Box, Center, Code } from "tuix-design";
 
 const center: FC = () => {
   return (
-    <DocLayout title="center" next="divider" prev="flex" tag={["usage"]}>
+    <DocLayout title="center" next="space" prev="flex" tag={["usage"]}>
       <p id="basic" className="py-5">
         Basic usage
       </p>
