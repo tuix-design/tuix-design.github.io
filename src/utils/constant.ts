@@ -357,6 +357,44 @@ export const apiSpace: api[] = [
   },
 ];
 
+export const apiDivider: api[] = [
+  {
+    props: "type",
+    type: "vertical | horizontal",
+    default: "horizontal",
+    description: "Divider type",
+    status: "optional",
+  },
+  {
+    props: "textPos",
+    type: "center | left | right",
+    default: "center",
+    description: "content's position",
+    status: "optional",
+  },
+  {
+    props: "space",
+    type: "number",
+    default: "None",
+    description: "Space arround divider in pixel",
+    status: "optional",
+  },
+  {
+    props: "size",
+    type: "number",
+    default: "1",
+    description: "Divider size",
+    status: "optional",
+  },
+  {
+    props: "color",
+    type: "string",
+    default: "#f4f4f4",
+    description: "Divider color",
+    status: "optional",
+  },
+];
+
 export const styleShortCode: any = {
   display: [
     {
