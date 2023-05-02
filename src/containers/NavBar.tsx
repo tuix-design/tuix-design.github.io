@@ -17,9 +17,9 @@ const NavBar: FC = () => {
     }
   `);
 
-  const pathname = window.location.pathname
-    .split("/")
-    .filter((link) => link !== "")[0];
+  const pathname =
+    typeof window !== "undefined" &&
+    window.location.pathname.split("/").filter((link) => link !== "")[0];
 
   const drawerController = useRef<any>(null);
   const [isShow, setIsShow] = useState<boolean>(false);
