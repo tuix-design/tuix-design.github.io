@@ -42,9 +42,9 @@ const DocLayout: FC<DocLayoutProps> = ({
         </select>
       </div>
 
-      <div className="w-full h-full flex mt-5">
+      <div className="w-full !h-[calc(100vh-100px)] flex mt-5">
         {/* navigation desktop */}
-        <div className="w-[200px] p-1 md:hidden">
+        <div className="w-[200px] overflow-y-auto p-1 md:hidden">
           {Object.keys(sideMenu).map((title, i) => (
             <div key={i}>
               <p key={i} className="my-3 capitalize text-gray-500">
@@ -63,7 +63,7 @@ const DocLayout: FC<DocLayoutProps> = ({
             </div>
           ))}
         </div>
-        <div className="w-full h-full px-5 md:px-2">
+        <div className="w-full h-full overflow-y-auto overflow-x-hidden px-5 md:px-2">
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>
@@ -81,12 +81,13 @@ const DocLayout: FC<DocLayoutProps> = ({
                     <>{next && <NextPrev title={next} />}</>
                   </Flex>
                 </Flex>
+                <Space h={50} />
               </div>
             </Flex>
             <>
               {/* tag navigation */}
               {
-                <div className="md:hidden flex flex-col w-fit min-w-[150px] border-r h-fit">
+                <div className="md:hidden flex flex-col w-fit min-w-[150px] sticky top-0 h-fit">
                   {tag?.map((t, i) => (
                     <span
                       key={i}
