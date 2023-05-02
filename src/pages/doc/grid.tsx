@@ -110,6 +110,7 @@ const grid: FC = () => {
         </Grid>
       </Section>
       <Section
+        id="gap"
         title="gap"
         code={`<Grid column={3} autoRows={100} gap={20}>
     <Box bg="blue" />
