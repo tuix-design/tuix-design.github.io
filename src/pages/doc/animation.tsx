@@ -52,7 +52,7 @@ option={{ iterations: Infinity, duration: 2000 }}
         >
           <Icon name="Home" color="#ffffff" />
         </Animate>
-        <Flex gap={5}>
+        <Flex gap={5} wrap>
           <Button onClick={() => animation.current.play()} variant="secondary">
             play
           </Button>
