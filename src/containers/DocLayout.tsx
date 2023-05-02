@@ -21,6 +21,7 @@ const DocLayout: FC<DocLayoutProps> = ({
   tag,
 }) => {
   const [hash, setHash] = useState<string>();
+  const browser = typeof window !== "undefined";
   return (
     <Layout>
       {/* navigation on mobile */}
@@ -30,7 +31,9 @@ const DocLayout: FC<DocLayoutProps> = ({
           onChange={(e) => {
             navigate(`/doc/${e.target.value.toLowerCase()}`);
           }}
-          defaultValue={window.location.pathname.replace(/\/doc\/|\//g, "")}
+          defaultValue={
+            browser ? window.location.pathname.replace(/\/doc\/|\//g, "") : ""
+          }
         >
           {Object.values(sideMenu).map((menu) =>
             menu.map((doc, i) => (
@@ -99,14 +102,16 @@ const DocLayout: FC<DocLayoutProps> = ({
                         const id = t.toLowerCase().replaceAll(" ", "-");
                         setHash(id);
                         e.preventDefault();
-                        document
-                          .getElementById(id)
-                          ?.scrollIntoView({ behavior: "smooth" });
-                        window.history.pushState(
-                          {},
-                          "",
-                          `${window.location.pathname}#${id}`
-                        );
+                        if (browser) {
+                          document
+                            .getElementById(id)
+                            ?.scrollIntoView({ behavior: "smooth" });
+                          window.history.pushState(
+                            {},
+                            "",
+                            `${window.location.pathname}#${id}`
+                          );
+                        }
                       }}
                     >
                       {t}
