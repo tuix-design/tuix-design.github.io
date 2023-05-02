@@ -4,9 +4,9 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Github from "../images/github.svg";
 import Search from "../components/Search";
-import { Icon, Div } from "tuix-design";
+import { Icon, Div, Animate } from "tuix-design";
 
-const NavBar: FC = (props) => {
+const NavBar: FC = () => {
   const logo = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "logo.png" }) {
@@ -21,8 +21,8 @@ const NavBar: FC = (props) => {
     .split("/")
     .filter((link) => link !== "")[0];
 
-  const drawerController = useRef<HTMLDivElement>(null);
-  const [isShow, setIsShow]: any = useState<boolean>(false);
+  const drawerController = useRef<any>(null);
+  const [isShow, setIsShow] = useState<boolean>(false);
 
   return (
     <nav className="w-full shadow-md shadow-black bg-[#01041b] !sticky top-0 z-50">
@@ -66,40 +66,42 @@ const NavBar: FC = (props) => {
         </div>
       </div>
       {/* drawer on mobile */}
-      <Div
-        ref={(node) => {
-          const draw = drawerController.current;
-          if (node && draw) {
-            draw.onclick = () => {
-              if (isShow) {
-                node.reverse();
-                setTimeout(() => setIsShow(false), 200);
-              } else {
-                node.play();
-                setIsShow(true);
-              }
-            };
-          }
-        }}
-        className={`${
-          isShow ? "flex" : "hidden"
-        } flex-col absolute top-[100%] bg-black h-screen`}
-        animation={{
-          animate: ["translate:-100%", "translate:0"],
-          option: { duration: 300, iterations: 1 },
-        }}
-        autoAnimate={false}
-      >
-        <Link className="p-4" to="/doc">
-          Documentation
-        </Link>
-        <Link className="p-4" to="/showcase">
-          showcase
-        </Link>
-        <Link className="p-4" to="/sponsor">
-          sponsor
-        </Link>
-      </Div>
+      <div className="absolute top-[100%] ">
+        <Animate
+          ref={(node) => {
+            const draw = drawerController.current;
+            if (node && draw) {
+              draw.onclick = () => {
+                if (isShow) {
+                  node.reverse();
+                  setTimeout(() => setIsShow(false), 200);
+                } else {
+                  node.play();
+                  setIsShow(true);
+                }
+              };
+            }
+          }}
+          animate={["translate:-100%", "translate:0"]}
+          option={{ duration: 300 }}
+        >
+          <Div
+            className={`${
+              isShow ? "flex" : "hidden"
+            } flex-col bg-black h-screen`}
+          >
+            <Link className="p-4" to="/doc">
+              Documentation
+            </Link>
+            <a className="p-4" href="https://tojonir.github.io">
+              Author
+            </a>
+            <a className="p-4" href="https://github.com/tuix-design">
+              Repository
+            </a>
+          </Div>
+        </Animate>
+      </div>
     </nav>
   );
 };
