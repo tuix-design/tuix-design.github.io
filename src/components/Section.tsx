@@ -1,25 +1,32 @@
 import { ReactNode } from "@mdx-js/react/lib";
-import React from "react";
+import React, { useRef } from "react";
 import { FC } from "react";
 import { Code } from "tuix-design";
 
 interface SectionProps {
   id?: string;
   title: string;
-  children: ReactNode;
-  preview?: boolean;
+  description?: string;
+  children?: ReactNode;
+  code?: string;
 }
 
-const Section: FC<SectionProps> = ({ id, title, children, preview }) => {
-  console.log(children);
+const Section: FC<SectionProps> = ({
+  id,
+  title,
+  description,
+  children,
+  code,
+}) => {
   return (
-    <>
-      <p id={id} className="py-5">
+    <div className="py-4">
+      <p id={id} className="">
         {title}
       </p>
-      {preview && <div>{children}</div>}
-      <Code mode="dark" language="javascript">{`${""}`}</Code>
-    </>
+      {description && <p>{description}</p>}
+      {children && <div className="py-2">{children}</div>}
+      <Code mode="dark" language="javascript">{`${code}`}</Code>
+    </div>
   );
 };
 

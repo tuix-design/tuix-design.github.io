@@ -438,6 +438,13 @@ export const apiGrid: api[] = [
     description: "",
     status: "optional",
   },
+  {
+    props: "gap",
+    type: "number",
+    default: "5",
+    description: "",
+    status: "optional",
+  },
 ];
 
 export const apiGridItem: api[] = [
