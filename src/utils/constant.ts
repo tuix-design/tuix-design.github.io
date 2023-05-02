@@ -5,6 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style"],
+  "data display": ["tooltip", "tab"],
 };
 
 export interface tagSchema {
@@ -144,6 +145,68 @@ export const apiButton: api[] = [
     type: "()=>void",
     description: "Button's onClick event",
     default: "none",
+    status: "optional",
+  },
+];
+
+export const apiTooltip: api[] = [
+  {
+    props: "children",
+    type: "ReactNode",
+    description: "the main element for tooltip",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "content",
+    type: "ReactNode",
+    description: "Tooltip's content",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "position",
+    type: "top | left | right | bottom",
+    description: "Tooltip's position",
+    default: "top",
+    status: "optional",
+  },
+  {
+    props: "style",
+    type: "CSSProperties",
+    description: "Tooltip's title",
+    default: "bg:#000 color:#fff",
+    status: "optional",
+  },
+];
+
+export const apiTab: api[] = [
+  {
+    props: "children",
+    type: "ReactNode",
+    description: "Each tab content",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "header",
+    type: "ReactNode",
+    description: "Tabbar content",
+    default: "None",
+    status: "required",
+  },
+  {
+    props: "activeStyle",
+    type: "CSSProperties",
+    description: "Active Tabbar style",
+    default: "None",
+    status: "optional",
+  },
+  {
+    props: "style",
+    type: "CSSProperties",
+    description: "Tabbar style",
+    default: "None",
     status: "optional",
   },
 ];

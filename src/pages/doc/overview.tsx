@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import { Card, Col, Row } from "tuix-design";
+import { Card, Flex } from "tuix-design";
 import DocLayout from "../../containers/DocLayout";
 
 type Props = {};
@@ -13,25 +13,23 @@ const Overview = (props: Props) => {
         We have the ready to use kit and customizable component <br />
         Feel free to add them to your react based application
       </p>
-      <Row wrap gap={[24, 16]}>
+      <Flex wrap gap={24}>
         {overview.map((over, i) => (
-          <Col key={i} span={window.innerWidth > 960 ? 6 : 24}>
-            <Link to={`/doc/${over}`}>
-              <Card
-                image={`/${over}.png`}
-                shadowColor="#5D00FF"
-                hoverShadow="sm"
-                className="group border hover:border-purple"
-                bordered={false}
-              >
-                <div className="p-2 capitalize group-hover:text-purple">
-                  {over}
-                </div>
-              </Card>
-            </Link>
-          </Col>
+          <Link to={`/doc/${over}`} key={i}>
+            <Card
+              image={`/${over}.png`}
+              shadowColor="#5D00FF"
+              hoverShadow="sm"
+              className="group border hover:border-purple max-w-[150px]"
+              bordered={false}
+            >
+              <div className="p-2 capitalize group-hover:text-purple">
+                {over}
+              </div>
+            </Card>
+          </Link>
         ))}
-      </Row>
+      </Flex>
     </DocLayout>
   );
 };
