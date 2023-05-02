@@ -6,7 +6,7 @@ import Layout from "../containers/Layout";
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-full h-[calc(100vh-100px)] flex flex-col justify-center items-center">
         <div className="w-[50px]">
           <Sign />
         </div>
@@ -19,7 +19,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <p className="text-[#A8B4EF] md:text-center my-5">
           front end kit, ready to use and customizable component.
         </p>
-        <div className="flex justify-evenly w-1/2 sm:w-full">
+        <div className="flex justify-evenly  w-1/2 sm:w-full">
           <Link to="/doc/" className="bg-purple py-1 px-3">
             get started
           </Link>

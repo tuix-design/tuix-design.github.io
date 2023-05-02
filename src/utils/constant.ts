@@ -5,6 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style", "animation"],
+  layout: ["grid", "flex", "center", "space", "divider"],
   "data display": ["tooltip", "tab"],
 };
 
@@ -262,6 +263,210 @@ export const apiOptionAnimation: api[] = [
     type: "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end",
     default: "linear",
     description: "animation easing",
+    status: "optional",
+  },
+];
+
+export const apiFlex: api[] = [
+  {
+    props: "w",
+    type: "0 - 24",
+    default: "0",
+    description: "Flex width using 24 grid system",
+    status: "optional",
+  },
+  {
+    props: "h",
+    type: "string | number",
+    default: "auto",
+    description: "Flex height",
+    status: "optional",
+  },
+  {
+    props: "align",
+    type: "start | end | center",
+    default: "start",
+    description: "align content",
+    status: "optional",
+  },
+  {
+    props: "justify",
+    type: "start | end | center | between | evenly",
+    default: "start",
+    description: "justify content",
+    status: "optional",
+  },
+  {
+    props: "col",
+    type: "boolean",
+    default: "false",
+    description: "flex column",
+    status: "optional",
+  },
+  {
+    props: "reverse",
+    type: "boolean",
+    default: "false",
+    description: "flex reverse",
+    status: "optional",
+  },
+  {
+    props: "wrap",
+    type: "boolean",
+    default: "false",
+    description: "flex wrap",
+    status: "optional",
+  },
+  {
+    props: "grow",
+    type: "boolean",
+    default: "false",
+    description: "flex grow",
+    status: "optional",
+  },
+  {
+    props: "shrink",
+    type: "boolean",
+    default: "false",
+    description: "flex shrink",
+    status: "optional",
+  },
+  {
+    props: "gap",
+    type: "number",
+    default: "0",
+    description: "flex gap in pixels",
+    status: "optional",
+  },
+];
+
+export const apiSpace: api[] = [
+  {
+    props: "w",
+    type: "string | number",
+    default: "0",
+    description: "Space width",
+    status: "optional",
+  },
+  {
+    props: "h",
+    type: "string | number",
+    default: "0",
+    description: "Space height",
+    status: "optional",
+  },
+];
+
+export const apiDivider: api[] = [
+  {
+    props: "type",
+    type: "vertical | horizontal",
+    default: "horizontal",
+    description: "Divider type",
+    status: "optional",
+  },
+  {
+    props: "textPos",
+    type: "center | left | right",
+    default: "center",
+    description: "content's position",
+    status: "optional",
+  },
+  {
+    props: "space",
+    type: "number",
+    default: "None",
+    description: "Space arround divider in pixel",
+    status: "optional",
+  },
+  {
+    props: "size",
+    type: "number",
+    default: "1",
+    description: "Divider size",
+    status: "optional",
+  },
+  {
+    props: "color",
+    type: "string",
+    default: "#f4f4f4",
+    description: "Divider color",
+    status: "optional",
+  },
+];
+
+export const apiGrid: api[] = [
+  {
+    props: "column",
+    type: "number",
+    default: "1",
+    description: "Grid column number",
+    status: "optional",
+  },
+  {
+    props: "templateColumns",
+    type: "string | number",
+    default: "null",
+    description: "The number (and the widths) of columns in a grid layout",
+    status: "optional",
+  },
+  {
+    props: "templateRows",
+    type: "string | number",
+    default: "null",
+    description: "The number (and the heights) of the rows in a grid layout",
+    status: "optional",
+  },
+  {
+    props: "autoRows",
+    type: "string | number",
+    default: "null",
+    description: "Rows's size",
+    status: "optional",
+  },
+  {
+    props: "autoCols",
+    type: "string | number",
+    default: "null",
+    description: "Columns's size",
+    status: "optional",
+  },
+  {
+    props: "templateAreas",
+    type: "string",
+    default: "null",
+    description: "areas within the grid layout",
+    status: "optional",
+  },
+  {
+    props: "gap",
+    type: "number",
+    default: "5",
+    description: "the gap between the rows/Columns in a grid layout",
+    status: "optional",
+  },
+];
+
+export const apiGridItem: api[] = [
+  {
+    props: "gridColumn",
+    type: "string | number",
+    default: "null",
+    description: "grid item's size and location in a grid layout",
+    status: "optional",
+  },
+  {
+    props: "gridRow",
+    type: "string | number",
+    default: "null",
+    description: "grid item's size and location in a grid layout",
+    status: "optional",
+  },
+  {
+    props: "gridArea",
+    type: "string | number",
+    default: "null",
+    description: "grid item's size and location in a grid layout",
     status: "optional",
   },
 ];

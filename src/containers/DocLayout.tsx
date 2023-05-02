@@ -42,9 +42,9 @@ const DocLayout: FC<DocLayoutProps> = ({
         </select>
       </div>
 
-      <div className="w-full h-full flex mt-5">
+      <div className="w-full !h-[calc(100vh-100px)] flex mt-5">
         {/* navigation desktop */}
-        <div className="w-[200px] p-1 md:hidden">
+        <div className="w-[200px] overflow-y-auto p-1 md:hidden">
           {Object.keys(sideMenu).map((title, i) => (
             <div key={i}>
               <p key={i} className="my-3 capitalize text-gray-500">
@@ -63,34 +63,35 @@ const DocLayout: FC<DocLayoutProps> = ({
             </div>
           ))}
         </div>
-        <div className="w-full h-full px-5 md:px-2">
+        <div className="w-full h-full overflow-y-auto overflow-x-hidden px-5 md:px-2">
           <div>
             <span className="text-[2rem] font-medium">{title}</span>
           </div>
           <Flex gap={5}>
             {/* main content */}
-            <Flex col={20} grow>
+            <Flex w={20} grow>
               <div className="w-full p-3 md:p-0">
                 {children}
                 <Space h={50} />
                 <Flex justify="between">
-                  <Flex col={10}>
+                  <Flex w={10}>
                     <>{prev && <NextPrev title={prev} left />}</>
                   </Flex>
-                  <Flex col={10}>
+                  <Flex w={10}>
                     <>{next && <NextPrev title={next} />}</>
                   </Flex>
                 </Flex>
+                <Space h={50} />
               </div>
             </Flex>
             <>
               {/* tag navigation */}
               {
-                <div className="md:hidden flex flex-col w-fit min-w-[150px] border-r h-fit">
+                <div className="md:hidden flex flex-col w-fit sticky top-0 h-fit">
                   {tag?.map((t, i) => (
                     <span
                       key={i}
-                      className={`cursor-pointer pl-3 py-1 ${
+                      className={`cursor-pointer min-w-[150px] pl-3 py-1 ${
                         hash === `${t.toLowerCase().replaceAll(" ", "-")}` &&
                         "text-purple"
                       } hover:underline`}

@@ -12,7 +12,7 @@ const icon: FC<IconProps> = () => {
   return (
     <DocLayout
       title="Icon"
-      next="layout"
+      next="style"
       prev="button"
       tag={["setup", "usage", "api"]}
     >
