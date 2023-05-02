@@ -4,7 +4,7 @@ interface sideMenuSchema {
 
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
-  general: ["button", "icon", "style"],
+  general: ["button", "icon", "style", "animation"],
   "data display": ["tooltip", "tab"],
 };
 
@@ -207,6 +207,61 @@ export const apiTab: api[] = [
     type: "CSSProperties",
     description: "Tabbar style",
     default: "None",
+    status: "optional",
+  },
+];
+
+export const apiAnimation: api[] = [
+  {
+    props: "animate",
+    type: "styleProperties[]",
+    default: "None",
+    description: "animation keyframe",
+    status: "required",
+  },
+  {
+    props: "option",
+    type: "optionProperties",
+    default: "defaultOptionProperties",
+    description: "animation option",
+    status: "optional",
+  },
+  {
+    props: "auto",
+    type: "boolean",
+    default: "true",
+    description: "true if animation start automatically",
+    status: "optional",
+  },
+];
+
+export const apiOptionAnimation: api[] = [
+  {
+    props: "delay",
+    type: "number",
+    default: "0",
+    description: "animation delay in millisecondes",
+    status: "optional",
+  },
+  {
+    props: "duration",
+    type: "number",
+    default: "500",
+    description: "animation duration in millisecondes",
+    status: "optional",
+  },
+  {
+    props: "iterations",
+    type: "number",
+    default: "1",
+    description: "animation iterations",
+    status: "optional",
+  },
+  {
+    props: "easing",
+    type: "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end",
+    default: "linear",
+    description: "animation easing",
     status: "optional",
   },
 ];

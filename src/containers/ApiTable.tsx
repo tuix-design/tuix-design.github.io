@@ -11,11 +11,12 @@ interface dataSchema {
 type dataKey = "props" | "type" | "description" | "default" | "status";
 
 interface ApiTableProps {
+  title?: string;
   data?: dataSchema[];
   id?: string;
 }
 
-const ApiTable: FC<ApiTableProps> = ({ data, id }) => {
+const ApiTable: FC<ApiTableProps> = ({ title, data, id }) => {
   const header: dataKey[] = [
     "props",
     "type",
@@ -25,7 +26,7 @@ const ApiTable: FC<ApiTableProps> = ({ data, id }) => {
   ];
   return (
     <div id={id} className="my-4 w-full overflow-x-auto">
-      <p className="my-2">API</p>
+      <p className="my-2">{title ? title : "API"}</p>
       <table className="w-full text-gray-300 rounded-sm">
         <thead>
           <tr>
