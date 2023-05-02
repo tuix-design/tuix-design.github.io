@@ -5,7 +5,7 @@ interface sideMenuSchema {
 export const sideMenu: sideMenuSchema = {
   start: ["overview", "installation"],
   general: ["button", "icon", "style", "animation"],
-  layout: ["flex", "center"],
+  layout: ["flex", "center", "space", "divider"],
   "data display": ["tooltip", "tab"],
 };
 
