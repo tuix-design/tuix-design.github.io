@@ -7,12 +7,7 @@ import { Box, Center, Code, Flex } from "tuix-design";
 
 const flex: FC = () => {
   return (
-    <DocLayout
-      title="flex"
-      tag={["usage", "api"]}
-      next="center"
-      prev="animation"
-    >
+    <DocLayout title="flex" tag={["usage", "api"]} next="grid" prev="animation">
       <p id="basic" className="py-5">
         Basic usage
       </p>
